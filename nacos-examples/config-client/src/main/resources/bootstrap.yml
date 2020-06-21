@@ -1,0 +1,20 @@
+server:
+  port: 8070
+spring:
+  cloud:
+    nacos:
+      discovery:
+        server-addr: localhost:8848
+        #指定配置中心的地址和配置中心使用的数据格式
+      config:
+        server-addr: localhost:8848
+        #file-extension: properties
+        file-extension: yml
+        #获取 GROUP_A 里面的配置
+        group: GROUP_A
+        namespace: 0095eca9-ce61-4bf3-8fd1-985f44ccf6a7
+  application:
+    name: config-
+  #使用环境配置
+  profiles:
+    active: dev
