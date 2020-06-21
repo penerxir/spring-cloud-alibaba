@@ -70,7 +70,7 @@ public class ConsumerController {
             return ResponseEntity.badRequest().body("当前服务没有服务提供者");
         }
 
-        ServiceInstance loadbalance = loadbalance(instances);
+        ServiceInstance loadbalance = loadBalance(instances);
         System.out.println(loadbalance);
         String instance = loadbalance.getHost()+":"+loadbalance.getPort();
         ResponseEntity<String> forEntity = restTemplate.getForEntity(
@@ -89,7 +89,7 @@ public class ConsumerController {
      * @param instances
      * @return
      */
-    private ServiceInstance loadbalance(List<ServiceInstance> instances) {
+    private ServiceInstance loadBalance(List<ServiceInstance> instances) {
 
         Random random = new Random(System.currentTimeMillis());
 
